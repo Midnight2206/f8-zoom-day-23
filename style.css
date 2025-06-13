@@ -61,7 +61,7 @@ h1.app-title {
   overflow: hidden;
 }
 .seacrch-lable {
-  background: #27ae60;
+  background: #4c5ddd;
   font-size: 1rem;
   text-align: center;
   align-self: center;
@@ -154,7 +154,7 @@ h1.app-title {
 }
 
 .task-card.green-card {
-  background: #27ae60;
+  background: #365bca;
   color: white;
 }
 
