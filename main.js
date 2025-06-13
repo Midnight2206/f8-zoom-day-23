@@ -144,6 +144,14 @@ taskList.onclick = (e) => {
     const index = tasksData.findIndex((task) => task.id === id);
     if (index !== -1) tasksData[index].complete = !tasksData[index].complete;
     localStorage.setItem("tasksData", JSON.stringify(tasksData));
+    const btnsFilter = taskFilter.querySelectorAll(".btn-filter");
+    btnsFilter.forEach((btn) => {
+      if (btn.dataset.filter === "all") {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
     render(tasksData);
   }
 };
@@ -157,10 +165,16 @@ taskFilter.onclick = (e) => {
   const tasksData = JSON.parse(localStorage.getItem("tasksData"));
   switch (filterMode) {
     case "completed":
-      render(tasksData.filter((data) => data.complete));
+      render(
+        tasksData.filter((data) => data.complete),
+        "Không có công việc nào đã hoàn thành"
+      );
       break;
     case "incomplete":
-      render(tasksData.filter((data) => !data.complete));
+      render(
+        tasksData.filter((data) => !data.complete),
+        "Không có công việc nào chưa hoàn thành"
+      );
       break;
     case "all":
       render(tasksData);
@@ -200,7 +214,6 @@ clearBtn.onclick = () => {
 const inputTitle = taskForm.querySelector('input[name="title"]');
 inputTitle.oninput = (e) => {
   const tasksData = JSON.parse(localStorage.getItem("tasksData")) || [];
-  console.log(tasksData);
 
   if (tasksData.some((data) => data.title === e.target.value)) {
     taskTitleWarning.classList.remove("hidden");
