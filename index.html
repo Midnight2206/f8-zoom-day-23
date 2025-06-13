@@ -52,7 +52,9 @@
         </div>
 
         <div class="task-list" id="task-list">
-
+        </div>
+        <div class="task-massage hidden">
+            <p></p>
         </div>
         <!-- Modal -->
         <div id="task-modal" class="modal hidden">
@@ -60,8 +62,10 @@
                 <h2 id="modal-title"></h2>
                 <form id="task-form">
                     <label>Title</label>
-                    <input type="text" name="title" required />
-
+                    <div>
+                        <input type="text" name="title" required />
+                        <p class="task-title-warning hidden">* Công việc bị trùng tiêu đề, bạn nên chỉnh sửa</p>
+                    </div>
                     <label>Description</label>
                     <textarea name="description"></textarea>
 
@@ -99,8 +103,6 @@
             </div>
         </div>
     </div>
-
-
     <script src="main.js"></script>
 </body>
 

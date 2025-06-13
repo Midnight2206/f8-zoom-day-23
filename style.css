@@ -142,7 +142,17 @@ h1.app-title {
   border-top: 6px solid #9b59b6;
   position: relative;
 }
-
+.task-massage {
+  background: linear-gradient(to top left, #ffffff, #f9f9f9);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  text-align: center;
+  border-top: 6px solid #9b59b6;
+}
+.task-massage.hidden {
+  display: none;
+}
 .task-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
@@ -287,7 +297,12 @@ h1.app-title {
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem 2rem;
 }
-
+#task-form .task-title-warning {
+  color: red;
+}
+#task-form .task-title-warning.hidden {
+  display: none;
+}
 #task-form label {
   font-weight: 600;
   margin-bottom: 0.3rem;
