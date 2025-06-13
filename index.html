@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Cards Todo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Card Template -->
+    <template class="task-card-template">
+        <div class="task-card">
+            <div class="task-header">
+                <h3 class="task-title"></h3>
+                <div class="task-actions">
+                    <button class="btn btn-complete" title="Đánh dấu hoàn thành"><i
+                            class="fa-solid fa-check"></i></button>
+                    <button class="btn btn-edit" title="Chỉnh sửa"><i class="fa-solid fa-pen"></i></button>
+                    <button class="btn btn-delete" title="Xóa"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+            <p class="task-desc"></p>
+            <div class="task-info">
+                <div><strong>Category:</strong><span class="task-category"></span></div>
+                <div><strong>Priority:</strong><span class="task-priority"></span></div>
+                <div><strong>Start:</strong><span class="task-start-time"></span></div>
+                <div><strong>End:</strong><span class="task-end-time"></span></div>
+                <div><strong>Due:</strong><span class="task-due-date"></span></div>
+            </div>
+        </div>
+    </template>
+    <!-- Container -->
+    <div class="app-container">
+        <h1 class="app-title">TODO LIST</h1>
+        <div class="app-toolbar">
+            <button id="add-task">Thêm</button>
+            <div class="task-search">
+                <label class="seacrch-lable" for="#">Tìm kiếm</label>
+                <input type="text" id="search-input" placeholder="Find task..." />
+                <button class="clear-btn"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            <div class="task-filter">
+                <label for="#">Lọc</label>
+                <button data-filter="completed" class="btn-filter">✅ Hoàn thành</button>
+                <button data-filter="incomplete" class="btn-filter">🕒 Chưa hoàn thành</button>
+                <button data-filter="all" class="btn-filter active">Tất cả</button>
+
+            </div>
+        </div>
+
+        <div class="task-list" id="task-list">
+
+        </div>
+        <!-- Modal -->
+        <div id="task-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="modal-title"></h2>
+                <form id="task-form">
+                    <label>Title</label>
+                    <input type="text" name="title" required />
+
+                    <label>Description</label>
+                    <textarea name="description"></textarea>
+
+                    <label>Category</label>
+                    <input type="text" name="category" />
+
+                    <label>Priority</label>
+                    <select name="priority">
+                        <option value="Thấp">Thấp</option>
+                        <option value="Trung bình">Trung bình</option>
+                        <option value="Cao">Cao</option>
+                    </select>
+
+                    <label>Start Time</label>
+                    <input type="date" name="startTime" />
+
+                    <label>End Time</label>
+                    <input type="date" name="endTime" />
+
+                    <label>Due Date</label>
+                    <input type="date" name="dueDate" />
+
+                    <label>Card Color</label>
+                    <select name="cardColor">
+                        <option value="red">Đỏ</option>
+                        <option value="green">Xanh</option>
+                        <option value="yellow">Vàng</option>
+                    </select>
+
+                    <div class="modal-buttons">
+                        <button type="submit" class="btn-submit"></button>
+                        <button type="button" class="btn-cancel">Hủy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
