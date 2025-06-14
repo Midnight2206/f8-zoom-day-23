@@ -88,6 +88,8 @@ function modalOpen(mode, id) {
   taskForm.reset();
   id && taskForm.setAttribute("data-id", id);
   taskModal.classList.remove("hidden");
+  const firstInput = taskForm.querySelector('input:not([type=hidden]):not([disabled])')
+  if(firstInput) firstInput.focus()
   modalContent.scrollTop = 0;
   switch (mode) {
     case "add":
@@ -156,6 +158,7 @@ taskList.onclick = (e) => {
   }
 };
 taskFilter.onclick = (e) => {
+  searchInput.value = ""
   const btnFilter = e.target.closest(".btn-filter");
   filterMode = btnFilter.dataset.filter;
   if (!btnFilter) return;
