@@ -76,6 +76,7 @@ async function formSubmit(e, mode, id) {
 
   const data = await getData();
   render(data || []);
+  taskTitleWarning.classList.add("hidden")
   taskModal.classList.add("hidden");
 }
 
@@ -108,6 +109,7 @@ btnCancel.onclick = () => {
 
 taskModal.onclick = (e) => {
   if (!modalContent.contains(e.target)) {
+    taskTitleWarning.classList.add("hidden")
     taskModal.classList.add("hidden");
   }
 };
